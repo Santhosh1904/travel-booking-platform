@@ -23,7 +23,7 @@ public class BookTrip {
 
         String url = "jdbc:mysql://localhost:3306/travel_booking";
         String user = "root";
-        String dbPassword = "Travel@12345";
+        String dbPassword = System.getenv("TRAVEL_DB_PASSWORD");
 
         try {
 
@@ -85,7 +85,7 @@ public class BookTrip {
                 System.out.println("Booking Successful!");
                 System.out.println("Destination: " + destinationName);
                 System.out.println("People: " + numberOfPeople);
-                System.out.println("Total Price: ₹" + totalPrice);
+                System.out.println("Total Price: Rs." + totalPrice);
                 System.out.println("Status: Confirmed");
 
             } else {

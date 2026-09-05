@@ -7,7 +7,7 @@ public class Main {
 
         String url = "jdbc:mysql://localhost:3306/travel_booking";
         String user = "root";
-        String password = "Travel@12345";
+        String password = System.getenv("TRAVEL_DB_PASSWORD");
 
         try {
             Connection connection = DriverManager.getConnection(url, user, password);

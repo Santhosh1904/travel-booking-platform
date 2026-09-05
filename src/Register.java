@@ -26,7 +26,7 @@ public class Register {
 
         String url = "jdbc:mysql://localhost:3306/travel_booking";
         String user = "root";
-        String dbPassword = "Travel@12345";
+        String dbPassword = System.getenv("TRAVEL_DB_PASSWORD");
 
         try {
 

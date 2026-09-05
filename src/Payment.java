@@ -11,14 +11,14 @@ public class Payment {
 
         System.out.println("\n===== PAYMENT =====");
         System.out.println("Booking ID: " + bookingId);
-        System.out.println("Amount: ₹" + amount);
+        System.out.println("Amount: Rs." + amount);
 
         System.out.print("Enter payment method (UPI/Card/Cash): ");
         String method = scanner.nextLine();
 
         String url = "jdbc:mysql://localhost:3306/travel_booking";
         String user = "root";
-        String dbPassword = "Travel@12345";
+        String dbPassword = System.getenv("TRAVEL_DB_PASSWORD");
 
         String sql = "INSERT INTO payments " +
                      "(booking_id, payment_date, amount, payment_method, payment_status) " +
