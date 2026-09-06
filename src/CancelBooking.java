@@ -15,6 +15,14 @@ public class CancelBooking {
         System.out.print("Enter Booking ID: ");
         int bookingId = scanner.nextInt();
 
+        System.out.print("Are you sure you want to cancel this booking? (Y/N): ");
+        String confirmation = scanner.next();
+
+        if (!confirmation.equalsIgnoreCase("Y")) {
+            System.out.println("Booking cancellation cancelled.");
+            return;
+        }
+
         String url = "jdbc:mysql://localhost:3306/travel_booking";
         String user = "root";
         String dbPassword = System.getenv("TRAVEL_DB_PASSWORD");
