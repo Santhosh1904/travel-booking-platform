@@ -60,7 +60,7 @@ public class ViewBookings {
                 System.out.println("People: "
                         + result.getInt("number_of_people"));
 
-                System.out.println("Total Price: ₹"
+                System.out.println("Total Price: Rs."
                         + result.getDouble("total_price"));
 
                 System.out.println("Status: "

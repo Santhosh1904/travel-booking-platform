@@ -18,6 +18,12 @@ public class BookTrip {
         System.out.print("Enter number of people: ");
         int numberOfPeople = scanner.nextInt();
 
+        while (numberOfPeople <= 0) {
+            System.out.println("Number of people must be at least 1.");
+            System.out.print("Enter number of people again: ");
+            numberOfPeople = scanner.nextInt();
+        }
+
         String url = "jdbc:mysql://localhost:3306/travel_booking";
         String user = "root";
         String dbPassword = System.getenv("TRAVEL_DB_PASSWORD");
@@ -86,11 +92,8 @@ public class BookTrip {
                 System.out.println("Status: Confirmed");
 
             } else {
-
-                System.out.println("Destination not found.");
-
+                System.out.println("Invalid Destination ID. Please try again.");
             }
-
             connection.close();
 
         } catch (Exception e) {
@@ -98,7 +101,5 @@ public class BookTrip {
             System.out.println("Booking Failed!");
             e.printStackTrace();
         }
-
-
     }
 }
