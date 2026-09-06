@@ -29,6 +29,13 @@ public class TravelBookingApp {
             System.out.println("================================");
 
             System.out.print("Enter your choice: ");
+
+            if (!scanner.hasNextInt()) {
+                System.out.println("Please enter a valid number.");
+                scanner.nextLine();
+                continue;
+            }
+
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -63,7 +70,11 @@ public class TravelBookingApp {
                     break;
 
                 case 6:
-                    CancelBooking.cancelBooking(loggedInUserId);
+                    if (loggedInUserId == -1) {
+                        System.out.println("Please login first.");
+                    } else {
+                        CancelBooking.cancelBooking(loggedInUserId);
+                    }
                     break;
 
                 case 7:
@@ -76,8 +87,8 @@ public class TravelBookingApp {
                     return;
 
                 default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
+                    System.out.println("Invalid choice. Please select a valid menu option.");
+                    break;
         }
     }
 }
