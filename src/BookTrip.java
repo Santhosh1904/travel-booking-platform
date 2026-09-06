@@ -6,14 +6,11 @@ import java.util.Scanner;
 
 public class BookTrip {
 
-    public static void main(String[] args) {
+    public static void bookTrip(int userId) {
 
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("===== BOOK A TRIP =====");
-
-        System.out.print("Enter your User ID: ");
-        int userId = scanner.nextInt();
 
         System.out.print("Enter Destination ID: ");
         int destinationId = scanner.nextInt();

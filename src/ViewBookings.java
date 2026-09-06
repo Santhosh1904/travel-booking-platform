@@ -6,14 +6,11 @@ import java.util.Scanner;
 
 public class ViewBookings {
 
-    public static void main(String[] args) {
+    public static void viewBookings(int userId) {
 
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("===== MY BOOKINGS =====");
-
-        System.out.print("Enter your User ID: ");
-        int userId = scanner.nextInt();
 
         String url = "jdbc:mysql://localhost:3306/travel_booking";
         String user = "root";
