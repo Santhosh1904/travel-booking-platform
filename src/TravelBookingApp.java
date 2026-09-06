@@ -22,8 +22,9 @@ public class TravelBookingApp {
                 System.out.println("3. View Destinations");
                 System.out.println("4. Book a Trip");
                 System.out.println("5. View My Bookings");
-                System.out.println("6. Logout");
-                System.out.println("7. Exit");
+                System.out.println("6. Cancel Booking");
+                System.out.println("7. Logout");
+                System.out.println("8. Exit");
             }
             System.out.println("================================");
 
@@ -62,11 +63,15 @@ public class TravelBookingApp {
                     break;
 
                 case 6:
+                    CancelBooking.cancelBooking(loggedInUserId);
+                    break;
+
+                case 7:
                     loggedInUserId = -1;
                     System.out.println("Logout successful!");
                     break;
 
-                case 7:
+                case 8:
                     System.out.println("Thank you for using Travel Booking Platform!");
                     return;
 
