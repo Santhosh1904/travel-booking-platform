@@ -64,6 +64,19 @@ public class CancelBooking {
 
                     updateStatement.executeUpdate();
 
+                    String refundSql =
+                            "UPDATE payments SET payment_status = 'Refunded' " +
+                            "WHERE booking_id = ?";
+
+                    PreparedStatement refundStatement =
+                    connection.prepareStatement(refundSql);
+
+                    refundStatement.setInt(1, bookingId);
+
+                    refundStatement.executeUpdate();
+
+                    System.out.println("Payment status updated to Refunded.");
+
                     System.out.println("Booking cancelled successfully!");
                 }
 

@@ -17,12 +17,12 @@ public class ViewBookings {
         String dbPassword = System.getenv("TRAVEL_DB_PASSWORD");
 
         String sql =
-                "SELECT b.booking_id, d.name, d.country, " +
-                "b.booking_date, b.number_of_people, " +
-                "b.total_price, b.status " +
+                "SELECT b.booking_id, d.name, d.country, b.booking_date, " +
+                "b.number_of_people, b.total_price, b.status, " +
+                "COALESCE(p.payment_status, 'Not Paid') AS payment_status " +
                 "FROM bookings b " +
-                "JOIN destinations d " +
-                "ON b.destination_id = d.destination_id " +
+                "JOIN destinations d ON b.destination_id = d.destination_id " +
+                "LEFT JOIN payments p ON b.booking_id = p.booking_id " +
                 "WHERE b.user_id = ?";
 
         try {
@@ -60,11 +60,14 @@ public class ViewBookings {
                 System.out.println("People: "
                         + result.getInt("number_of_people"));
 
-                System.out.println("Total Price: Rs."
+                System.out.println("Total Price: "
                         + result.getDouble("total_price"));
 
                 System.out.println("Status: "
                         + result.getString("status"));
+
+                System.out.println("Payment Status: "
+                        + result.getString("payment_status"));
 
                 System.out.println("----------------------------");
             }
