@@ -7,8 +7,11 @@ A console-based Travel Booking Platform developed using Java and MySQL.
 - User Registration
 - User Login and Logout
 - View Travel Destinations
-- Book a Trip
+- Search Destinations by Name or Country
+- Filter Destinations by Maximum Price
+- Prepared SQL Queries using PreparedStatement
 - Automatic Logged-in User Handling
+- Book a Trip
 - Payment Processing
 - View My Bookings
 - Cancel Booking
@@ -79,3 +82,18 @@ travel-booking-platform/
 - Database passwords are not stored directly in the source code.
 - The MySQL password is read from the `TRAVEL_DB_PASSWORD` environment variable.
 - Sensitive credentials should never be committed to GitHub.
+
+## Destination Search and Filtering
+
+The destination module supports dynamic search and budget-based filtering.
+
+Users can:
+
+- Search destinations by name.
+- Search destinations by country.
+- Set a maximum travel price.
+- Combine destination search with price filtering.
+- Receive a message when no matching destinations are available.
+- Get validation feedback for invalid price input.
+
+The feature uses JDBC `PreparedStatement` for parameterized SQL queries.
